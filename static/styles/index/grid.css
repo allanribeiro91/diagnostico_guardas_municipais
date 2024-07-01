@@ -1,0 +1,16 @@
+body {
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main";
+    grid-template-rows: auto 1fr;
+    row-gap: 2vh;
+}
+
+.cabecalho {
+    grid-area: header;
+}
+
+.principal {
+    grid-area: main;
+}

@@ -1,0 +1,19 @@
+body {
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "apresentacao";
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+    align-items: center;
+    row-gap: 2vh;
+}
+
+.cabecalho {
+    grid-area: header;
+}
+
+.principal {
+    grid-area: main;
+}

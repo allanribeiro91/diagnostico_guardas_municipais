@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Rawline';
+    src: url('{% static "assets/fonts/rawline-100.ttff" %}') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Rawline', sans-serif;
+    padding: 3vh 3vw;
+}
+
+
+.cabecalho {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cabecalho img {
+    width: 25%;
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+
+.principal__titulo {
+    font-size: 3rem;
+}
