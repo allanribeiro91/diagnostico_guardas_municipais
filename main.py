@@ -271,6 +271,23 @@ def tratar_s03_7_violencia_contra_mulheres():
     # Salvar planilha
     df.to_excel(caminho_planilha, index=False)
 
+def tratar_s04_tratamento_informacao():
+    """
+    Função para inserir "Não informado" em campos vazios e "Não se aplica" quando for o caso.
+    """
+    caminho_planilha = r'bases\S04_TRATAMENTO_INFORMACOES.xlsx'
+    df = pd.read_excel(caminho_planilha)
+    
+    #Preenche com "Não informado" colunas NÃO numéricas
+    for coluna in df.columns:
+        if not pd.api.types.is_numeric_dtype(df[coluna]):
+            df[coluna] = df[coluna].fillna("")  # Preenche NaN com string vazia *PRIMEIRO*
+            df[coluna] = df[coluna].astype(str)  # Converte para string *DEPOIS*
+            df.loc[df[coluna] == "", coluna] = "Não informado"
+
+    # Salvar planilha
+    df.to_excel(caminho_planilha, index=False)
+
 S0_LOG = [
         'ID da resposta',
         'Data de envio',
@@ -1425,7 +1442,7 @@ S13_ESTRUTURA_SEGPUB = [
     '13.6. Existe Fundo Municipal de Segurança Pública?',
 ]
 
-def main():
+def main(): 
     gerar_arquivo_separado(S0_LOG)
     s1_identificacao()
     gerar_arquivo_separado(S02_INSTITUCIONALIZACAO)
@@ -1446,6 +1463,9 @@ def main():
     tratar_s03_1_estrutura_organizacional_1()
     tratar_s03_1_estrutura_organizacional_2()
     tratar_s03_7_violencia_contra_mulheres()
+    tratar_s04_tratamento_informacao()
+
+
 
 if __name__ == "__main__":
     main()
