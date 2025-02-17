@@ -1458,7 +1458,7 @@ def main():
     gerar_arquivo_separado(S11_AVALIACAO_ATIVIDADES)
     gerar_arquivo_separado(S12_REDE_INSTITUCIONAL)
     gerar_arquivo_separado(S13_ESTRUTURA_SEGPUB)
-    #teste
+
     #tratar arquivos
     tratar_s03_1_estrutura_organizacional_1()
     tratar_s03_1_estrutura_organizacional_2()
